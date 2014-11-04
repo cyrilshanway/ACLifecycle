@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		1CE9A94C1A092CB60036642F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9A94B1A092CB60036642F /* main.m */; };
 		1CE9A94F1A092CB60036642F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9A94E1A092CB60036642F /* AppDelegate.m */; };
-		1CE9A9521A092CB60036642F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9A9511A092CB60036642F /* MasterViewController.m */; };
-		1CE9A9551A092CB60036642F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9A9541A092CB60036642F /* DetailViewController.m */; };
+		1CE9A9521A092CB60036642F /* ACMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9A9511A092CB60036642F /* ACMasterViewController.m */; };
+		1CE9A9551A092CB60036642F /* ACDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9A9541A092CB60036642F /* ACDetailViewController.m */; };
 		1CE9A9581A092CB60036642F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CE9A9561A092CB60036642F /* Main.storyboard */; };
 		1CE9A95A1A092CB60036642F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CE9A9591A092CB60036642F /* Images.xcassets */; };
 		1CE9A95D1A092CB60036642F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1CE9A95B1A092CB60036642F /* LaunchScreen.xib */; };
 		1CE9A9691A092CB60036642F /* ACLifecycleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9A9681A092CB60036642F /* ACLifecycleTests.m */; };
+		1CE9A9761A0930030036642F /* ACLifecycleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CE9A9751A0930030036642F /* ACLifecycleCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,16 +34,18 @@
 		1CE9A94B1A092CB60036642F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1CE9A94D1A092CB60036642F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1CE9A94E1A092CB60036642F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1CE9A9501A092CB60036642F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		1CE9A9511A092CB60036642F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		1CE9A9531A092CB60036642F /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		1CE9A9541A092CB60036642F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		1CE9A9501A092CB60036642F /* ACMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMasterViewController.h; sourceTree = "<group>"; };
+		1CE9A9511A092CB60036642F /* ACMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACMasterViewController.m; sourceTree = "<group>"; };
+		1CE9A9531A092CB60036642F /* ACDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACDetailViewController.h; sourceTree = "<group>"; };
+		1CE9A9541A092CB60036642F /* ACDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACDetailViewController.m; sourceTree = "<group>"; };
 		1CE9A9571A092CB60036642F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1CE9A9591A092CB60036642F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1CE9A95C1A092CB60036642F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1CE9A9621A092CB60036642F /* ACLifecycleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ACLifecycleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CE9A9671A092CB60036642F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CE9A9681A092CB60036642F /* ACLifecycleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACLifecycleTests.m; sourceTree = "<group>"; };
+		1CE9A9741A0930030036642F /* ACLifecycleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACLifecycleCell.h; sourceTree = "<group>"; };
+		1CE9A9751A0930030036642F /* ACLifecycleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACLifecycleCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,12 +87,10 @@
 		1CE9A9481A092CB60036642F /* ACLifecycle */ = {
 			isa = PBXGroup;
 			children = (
+				1CE9A9731A092FE20036642F /* View */,
+				1CE9A9721A092CE50036642F /* View Controller */,
 				1CE9A94D1A092CB60036642F /* AppDelegate.h */,
 				1CE9A94E1A092CB60036642F /* AppDelegate.m */,
-				1CE9A9501A092CB60036642F /* MasterViewController.h */,
-				1CE9A9511A092CB60036642F /* MasterViewController.m */,
-				1CE9A9531A092CB60036642F /* DetailViewController.h */,
-				1CE9A9541A092CB60036642F /* DetailViewController.m */,
 				1CE9A9561A092CB60036642F /* Main.storyboard */,
 				1CE9A9591A092CB60036642F /* Images.xcassets */,
 				1CE9A95B1A092CB60036642F /* LaunchScreen.xib */,
@@ -122,6 +123,26 @@
 				1CE9A9671A092CB60036642F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1CE9A9721A092CE50036642F /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1CE9A9501A092CB60036642F /* ACMasterViewController.h */,
+				1CE9A9511A092CB60036642F /* ACMasterViewController.m */,
+				1CE9A9531A092CB60036642F /* ACDetailViewController.h */,
+				1CE9A9541A092CB60036642F /* ACDetailViewController.m */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		1CE9A9731A092FE20036642F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CE9A9741A0930030036642F /* ACLifecycleCell.h */,
+				1CE9A9751A0930030036642F /* ACLifecycleCell.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +189,7 @@
 		1CE9A93E1A092CB60036642F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = AC;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Soleil Studio";
 				TargetAttributes = {
@@ -224,10 +246,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CE9A9761A0930030036642F /* ACLifecycleCell.m in Sources */,
 				1CE9A94F1A092CB60036642F /* AppDelegate.m in Sources */,
-				1CE9A9521A092CB60036642F /* MasterViewController.m in Sources */,
+				1CE9A9521A092CB60036642F /* ACMasterViewController.m in Sources */,
 				1CE9A94C1A092CB60036642F /* main.m in Sources */,
-				1CE9A9551A092CB60036642F /* DetailViewController.m in Sources */,
+				1CE9A9551A092CB60036642F /* ACDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ACLifecycle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -362,6 +386,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ACLifecycle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
