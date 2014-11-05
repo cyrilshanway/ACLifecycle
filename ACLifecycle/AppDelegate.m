@@ -11,6 +11,8 @@
 
 @interface AppDelegate () <UISplitViewControllerDelegate>
 
+@property (nonatomic, strong) UISplitViewController *splitViewController;
+
 @end
 
 @implementation AppDelegate
@@ -18,11 +20,28 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Override point for customization after application launch.
-  UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-  UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-  navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem;
-  splitViewController.delegate = self;
+  _splitViewController = (UISplitViewController *)self.window.rootViewController;
+  UINavigationController *navigationController = [_splitViewController.viewControllers lastObject];
+  navigationController.topViewController.navigationItem.leftBarButtonItem = _splitViewController.displayModeButtonItem;
+  _splitViewController.delegate = self;
   return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+  
+  NSLog(@"We just tap local notificaion: %@", notification);
+  
+  // Push ACDetailViewController
+  UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+  
+  ACDetailViewController *detailViewController = (ACDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DetailViewController"];
+  detailViewController.detailItem = notification.userInfo;
+
+  UINavigationController *navigationController = [_splitViewController.viewControllers lastObject];
+  [navigationController pushViewController:detailViewController animated:YES];
+  
+  //clear app badge
+  [UIApplication sharedApplication].applicationIconBadgeNumber=0;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

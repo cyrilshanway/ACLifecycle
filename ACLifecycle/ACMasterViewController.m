@@ -34,6 +34,10 @@
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
   self.navigationItem.rightBarButtonItem = addButton;
   self.detailViewController = (ACDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+  
+  if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
+    [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+  }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -71,9 +75,13 @@
   if (!self.objects) {
       self.objects = [[NSMutableArray alloc] init];
   }
-  [self.objects insertObject:[NSDate date] atIndex:0];
+  
+  NSDate *now = [NSDate date];
+  [self.objects insertObject:now atIndex:0];
   NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
   [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+  
+  [self schedulLocalNotification:now afterMintue:1 indexPath:indexPath];
 }
 
 #pragma mark - Segues
@@ -87,6 +95,31 @@
       controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
       controller.navigationItem.leftItemsSupplementBackButton = YES;
   }
+}
+
+#pragma mark - private
+
+- (void)schedulLocalNotification:(NSDate *)now afterMintue:(NSInteger)minute indexPath:(NSIndexPath *)indexPath {
+  // Schedule a local notification
+  NSCalendar *calendar = [[NSCalendar alloc]
+                          initWithCalendarIdentifier:NSGregorianCalendar];
+  NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
+  [offsetComponents setMinute:minute];
+  // Calculate when, according to Tom Lehrer, World War III will end
+  NSDate *oneMoreMinute = [calendar dateByAddingComponents:offsetComponents toDate:now options:0];
+  NSLog(@"One more Minute date %@", oneMoreMinute);
+  
+  NSUInteger scheduledNotificationsCount = [[UIApplication sharedApplication] scheduledLocalNotifications].count;
+  NSLog(@"We have %lu local notifcations.", scheduledNotificationsCount);
+  
+  UILocalNotification *remindUserFromNotify = [[UILocalNotification alloc] init];
+  remindUserFromNotify.fireDate = oneMoreMinute;
+  remindUserFromNotify.alertBody = NSLocalizedString(@"After one mintute", @"Remind me after 1 min.");
+  remindUserFromNotify.soundName = UILocalNotificationDefaultSoundName;
+  remindUserFromNotify.applicationIconBadgeNumber = scheduledNotificationsCount + 1;
+  remindUserFromNotify.userInfo = @{@"FireDate":oneMoreMinute, @"Index": [NSNumber numberWithInteger:indexPath.row]};
+  
+  [[UIApplication sharedApplication] scheduleLocalNotification:remindUserFromNotify];
 }
 
 #pragma mark - Table View
