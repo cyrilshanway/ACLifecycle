@@ -34,7 +34,7 @@
   UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
   self.navigationItem.rightBarButtonItem = addButton;
   self.detailViewController = (ACDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-  
+  //********************* 註冊notification *********************//
   if ([[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)]) {
     [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
   }
@@ -98,7 +98,7 @@
 }
 
 #pragma mark - private
-
+//******************************* push notification ************************************//
 - (void)schedulLocalNotification:(NSDate *)now afterMintue:(NSInteger)minute indexPath:(NSIndexPath *)indexPath {
   // Schedule a local notification
   NSCalendar *calendar = [[NSCalendar alloc]
@@ -111,7 +111,7 @@
   
   NSUInteger scheduledNotificationsCount = [[UIApplication sharedApplication] scheduledLocalNotifications].count;
   NSLog(@"We have %lu local notifcations.", scheduledNotificationsCount);
-  
+
   UILocalNotification *remindUserFromNotify = [[UILocalNotification alloc] init];
   remindUserFromNotify.fireDate = oneMoreMinute;
   remindUserFromNotify.alertBody = NSLocalizedString(@"After one mintute", @"Remind me after 1 min.");
